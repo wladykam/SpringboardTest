@@ -6,40 +6,24 @@ for each of the ML models
 """
 
 
-# import preliminary packages to be used for immediate data cleaning and exploration
+# # import preliminary packages to be used for immediate data cleaning and exploration
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-# Read in CSV to pandas DataFrame, handle missing values and reset index
-telcom_data = pd.read_csv('telcom_data.csv')
+# Read in CSV to pandas DataFrame, set correct data types, handle missing values and reset index
+datatype_dict = {'customerID':'str','gender':'category','SeniorCitizen':'category','Partner':'category',
+                 'Dependents':'category','tenure':'int','PhoneService':'category','MultipleLines':'category',
+                 'InternetService':'category','OnlineSecurity':'category','OnlineBackup':'category','DeviceProtection':'category',
+                 'TechSupport':'category','StreamingTV':'category','StreamingMovies':'category','Contract':'category',
+                 'PaperlessBill':'category','PaymentMethod':'category','Churn':'category'}
+telcom_data = pd.read_csv('telcom_data.csv',dtype=datatype_dict)
 telcom_data.TotalCharges = telcom_data.TotalCharges.replace(' ',np.nan,regex=True)
 telcom_data = telcom_data.dropna()
+telcom_data.TotalCharges = pd.to_numeric(telcom_data.TotalCharges)
 telcom_data = telcom_data.reset_index()
 telcom_data = telcom_data.drop('index',axis=1)
-
-# convert columns to appropriate data types
-telcom_data.customerID = telcom_data.customerID.astype('str')
-telcom_data.gender = telcom_data.gender.astype('category')
-telcom_data.SeniorCitizen = telcom_data.SeniorCitizen.astype('category')
-telcom_data.Partner = telcom_data.Partner.astype('category')
-telcom_data.Dependents = telcom_data.Dependents.astype('category')
-telcom_data.tenure = telcom_data.tenure.astype('int')
-telcom_data.PhoneService = telcom_data.PhoneService.astype('category')
-telcom_data.MultipleLines = telcom_data.MultipleLines.astype('category')
-telcom_data.InternetService = telcom_data.InternetService.astype('category')
-telcom_data.OnlineSecurity = telcom_data.OnlineSecurity.astype('category')
-telcom_data.OnlineBackup = telcom_data.OnlineBackup.astype('category')
-telcom_data.DeviceProtection = telcom_data.DeviceProtection.astype('category')
-telcom_data.TechSupport = telcom_data.TechSupport.astype('category')
-telcom_data.StreamingTV = telcom_data.StreamingTV.astype('category')
-telcom_data.StreamingMovies = telcom_data.StreamingMovies.astype('category')
-telcom_data.Contract = telcom_data.Contract.astype('category')
-telcom_data.PaperlessBilling = telcom_data.PaperlessBilling.astype('category')
-telcom_data.PaymentMethod = telcom_data.PaymentMethod.astype('category')
-telcom_data.TotalCharges = pd.to_numeric(telcom_data.TotalCharges)
-telcom_data.Churn = telcom_data.Churn.astype('category')
 
 # set default plotting style throughout program
 sns.set()
