@@ -13,7 +13,7 @@ Original dataset was acquired for free at Yahoo Finance (dates: 5/11/2015 - 5/11
 1) **Detailed Final Report**: The final report is a detailed write up explaining all major steps required to complete this project and relevant takeaways from each section.
 The bulk of the material discusses models used and performance, but there are also other supplemental sections, such as an introduction, description of the dataset, important
 insights from Exploratory Data Analysis (EDA) as well as future work and conclusion sections. This can be accessed in either [.docx]
-(https://github.com/wladykam/SpringboardTest/blob/master/CapstoneProject2/CapstoneProject2FinalReport) or [.pdf]
+(https://github.com/wladykam/SpringboardTest/blob/master/CapstoneProject2/CapstoneProject2FinalReport.docx) or [.pdf]
 (https://github.com/wladykam/SpringboardTest/blob/master/CapstoneProject2/CapstoneProject2FinalReport.pdf) formats 
 2) **Slide Deck**: The slide deck is accompanying material for the final report and would be used in a presentation setting. It is a more condensed version of the final report 
 and therefore all information found in the final report is not contained in the slide deck. It also contains visualizations from the code. It can be found in [.pptx]
